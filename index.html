@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Clue-dle</title>
+    <meta name="description" content="Play Clue-dle, a free word guessing game where you solve riddles to find the hidden 5-letter word. Test your vocabulary and logic skills now!">
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body { background-color: #121213; margin: 0; overflow-x: hidden; }
+        header { height: 70px; background-color: #121213; display: flex; align-items: center; padding: 0 20px; box-sizing: border-box; }
+        .content-section { padding: 20px; max-width: 600px; margin: 0 auto 50px auto; color: #818384; font-family: 'Inter', sans-serif; line-height: 1.6; }
+        .content-section h2, .content-section h3 { color: #ffffff; margin-top: 25px; }
+        .content-section a { color: #818384; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div id="toast-container"></div>
+
+    <header>
+        <img id="game-logo" src="logo.png" alt="CLUE-DLE" style="height: 50px; width: auto; display: block;">
+        
+        <button id="help-btn" onclick="toggleHelp()">?</button>
+    </header>
+
+    <div class="game-container">
+        <div class="clue-box">
+            <div class="clue-label">CLUE <span id="clue-level">1</span>/5</div>
+            <div id="clue-text">Loading riddle...</div>
+        </div>
+
+        <div id="game-board"></div>
+
+        <div id="keyboard-container">
+            <div class="keyboard-row" id="row-1"></div>
+            <div class="keyboard-row" id="row-2"></div>
+            <div class="keyboard-row" id="row-3"></div>
+        </div>
+    </div>
+
+    <div id="restart-menu" class="hidden">
+        <div id="streak-display">Streak: 0</div>
+        <button id="restart-btn" onclick="startNewGame()">NEXT LEVEL ➔</button>
+    </div>
+
+    <div id="help-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleHelp()">&times;</span>
+            <h2>How to Play</h2>
+            <ul>
+                <li><strong>Read the Clue:</strong> Solve the riddle at the top first.</li>
+                <li><strong>Guess the Word:</strong> Enter a 5-letter answer.</li>
+                <li><strong>Check Colors:</strong>
+                    <div class="examples">
+                        <div class="example"><span class="tile correct-static">G</span> Right letter, Right spot</div>
+                        <div class="example"><span class="tile present-static">Y</span> Right letter, Wrong spot</div>
+                        <div class="example"><span class="tile absent-static">B</span> Wrong letter</div>
+                    </div>
+                </li>
+            </ul>
+            <p>A new riddle appears every level!</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>About Clue-dle</h2>
+        <p>Clue-dle is a twist on the classic word guessing genre. Instead of guessing blindly, you must use lateral thinking to solve a riddle that guides you to the correct word.</p>
+        
+        <p style="font-size: 0.8rem; text-align: center; margin-top: 50px;">
+            <a href="privacy.html" target="_blank">Privacy Policy</a> | 
+            &copy; 2025 Clue-dle Game
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

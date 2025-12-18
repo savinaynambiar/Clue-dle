@@ -1,0 +1,1 @@
+const GAME_CONFIG = { "word": "CHERRY" };
